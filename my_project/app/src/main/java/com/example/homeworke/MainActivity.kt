@@ -1,9 +1,9 @@
 package com.example.homeworke
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -40,28 +40,40 @@ class MainActivity : AppCompatActivity() {
 //}
         binding.d4.setOnClickListener {
             val randomNumber = sumThrowDice(5)
-            Toast.makeText(this, "$randomNumber", Toast.LENGTH_SHORT).show()
+            val myDialogFragment = DiceRollAlert()
+            val manager = supportFragmentManager
+            myDialogFragment.show(manager, "Alert")
 
         }
         binding.d6.setOnClickListener {
             val randomNumber = sumThrowDice(7)
-            Toast.makeText(this, "$randomNumber", Toast.LENGTH_SHORT).show()
+            val myDialogFragment = DiceRollAlert()
+            val manager = supportFragmentManager
+            myDialogFragment.show(manager, "Alert")
         }
         binding.d8.setOnClickListener {
             val randomNumber = sumThrowDice(9)
-            Toast.makeText(this, "$randomNumber", Toast.LENGTH_SHORT).show()
+            val myDialogFragment = DiceRollAlert()
+            val manager = supportFragmentManager
+            myDialogFragment.show(manager, "Alert")
         }
         binding.d10.setOnClickListener {
             val randomNumber = sumThrowDice(11)
-            Toast.makeText(this, "$randomNumber", Toast.LENGTH_SHORT).show()
+            val myDialogFragment = DiceRollAlert()
+            val manager = supportFragmentManager
+            myDialogFragment.show(manager, "Alert")
         }
         binding.d12.setOnClickListener {
             val randomNumber = sumThrowDice(13)
-            Toast.makeText(this, "$randomNumber", Toast.LENGTH_SHORT).show()
+            val myDialogFragment = DiceRollAlert()
+            val manager = supportFragmentManager
+            myDialogFragment.show(manager, "Alert")
         }
         binding.d20.setOnClickListener {
             val randomNumber = sumThrowDice(21)
-            Toast.makeText(this, "$randomNumber", Toast.LENGTH_SHORT).show()
+            val myDialogFragment = DiceRollAlert()
+            val manager = supportFragmentManager
+            myDialogFragment.show(manager, "Alert")
         }
         binding.buttonDice.setOnClickListener {
 
@@ -102,10 +114,16 @@ class MainActivity : AppCompatActivity() {
     fun sumThrowDice(maxDiceValue: Int): Int {
         var sum = 0
         for (i in 0..counterDice -1){
-            sum += Random.nextInt(1, maxDiceValue)
-            Log.d("main123123123", "sum: $sum")
+            sum += Random.nextInt(1, maxDiceValue) + counterMod
+            if (sum < 1){
+                sum  = 1
+            }
+            historyValue.add(sum)
+//            Log.d("main123123123", "sum: $sum")
         }
 
         return sum
     }
+
+
 }
