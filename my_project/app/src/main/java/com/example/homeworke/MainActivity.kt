@@ -1,5 +1,6 @@
 package com.example.homeworke
 
+import android.content.Context
 import android.os.Bundle
 
 import androidx.activity.enableEdgeToEdge
@@ -40,40 +41,33 @@ class MainActivity : AppCompatActivity() {
 //}
         binding.d4.setOnClickListener {
             val randomNumber = sumThrowDice(5)
-            val myDialogFragment = DiceRollAlert()
-            val manager = supportFragmentManager
-            myDialogFragment.show(manager, "Alert")
-
+            showAlert(this, historyValue.toString())
+                historyValue.clear()
         }
         binding.d6.setOnClickListener {
             val randomNumber = sumThrowDice(7)
-            val myDialogFragment = DiceRollAlert()
-            val manager = supportFragmentManager
-            myDialogFragment.show(manager, "Alert")
+            showAlert(this, historyValue.toString())
+            historyValue.clear()
         }
         binding.d8.setOnClickListener {
             val randomNumber = sumThrowDice(9)
-            val myDialogFragment = DiceRollAlert()
-            val manager = supportFragmentManager
-            myDialogFragment.show(manager, "Alert")
+            showAlert(this, historyValue.toString())
+            historyValue.clear()
         }
         binding.d10.setOnClickListener {
             val randomNumber = sumThrowDice(11)
-            val myDialogFragment = DiceRollAlert()
-            val manager = supportFragmentManager
-            myDialogFragment.show(manager, "Alert")
+            showAlert(this, historyValue.toString())
+            historyValue.clear()
         }
         binding.d12.setOnClickListener {
             val randomNumber = sumThrowDice(13)
-            val myDialogFragment = DiceRollAlert()
-            val manager = supportFragmentManager
-            myDialogFragment.show(manager, "Alert")
+            showAlert(this, historyValue.toString())
+            historyValue.clear()
         }
         binding.d20.setOnClickListener {
             val randomNumber = sumThrowDice(21)
-            val myDialogFragment = DiceRollAlert()
-            val manager = supportFragmentManager
-            myDialogFragment.show(manager, "Alert")
+            showAlert(this, historyValue.toString())
+            historyValue.clear()
         }
         binding.buttonDice.setOnClickListener {
 
@@ -113,8 +107,10 @@ class MainActivity : AppCompatActivity() {
 
     fun sumThrowDice(maxDiceValue: Int): Int {
         var sum = 0
+        var result = 0
         for (i in 0..counterDice -1){
-            sum += Random.nextInt(1, maxDiceValue) + counterMod
+            sum = Random.nextInt(1, maxDiceValue) + counterMod
+            result += sum
             if (sum < 1){
                 sum  = 1
             }
@@ -122,8 +118,15 @@ class MainActivity : AppCompatActivity() {
 //            Log.d("main123123123", "sum: $sum")
         }
 
-        return sum
+        return result
     }
 
-
+    fun showAlert(context: Context, message: String) {
+        val builder = AlertDialog.Builder(context)
+        val throwNumbers : Int = historyValue.sum()
+        builder.setMessage(message + " " + throwNumbers)
+        builder.setPositiveButton("ОК") { dialog, which -> dialog.dismiss() }
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
 }
