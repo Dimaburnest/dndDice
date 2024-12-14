@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="horizontal_margin">64dp</dimen>
-    <dimen name="vertical_margin">64dp</dimen>
-    <dimen name="text_size">36sp</dimen>
+    <style name="dialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+        <dimen name="horizontal_margin">64dp</dimen>
+        <dimen name="vertical_margin">64dp</dimen>
+        <dimen name="text_size">1sp</dimen>
+
 </resources>
