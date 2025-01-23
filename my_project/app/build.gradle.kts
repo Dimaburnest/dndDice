@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
     implementation ("androidx.appcompat:appcompat:1.4.1")
     implementation ("com.google.android.material:material:1.5.0")
     implementation ("androidx.viewpager2:viewpager2:1.0.0")
