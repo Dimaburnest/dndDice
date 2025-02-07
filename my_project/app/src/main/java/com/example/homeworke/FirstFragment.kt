@@ -10,8 +10,10 @@ import com.example.homeworke.databinding.FragmentFirstBinding
 import kotlin.random.Random
 
 class FirstFragment : Fragment() {
+    val secondFragment:SecondFragment?=null
     var counterDice: Int = 1
     var counterMod: Int = 0
+    var fragmentSecond: SecondFragment? = null
     var historyValue = ArrayList<Int>()
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
@@ -35,11 +37,14 @@ class FirstFragment : Fragment() {
 //}
         binding.d4.setOnClickListener {
             val randomNumber = sumThrowDice(5)
+            showAlert(this, historyValue.toString())
+            fragmentSecond?.addItem(historyValue)
             historyValue.clear()
         }
         binding.d6.setOnClickListener {
             val randomNumber = sumThrowDice(7)
             showAlert(this, historyValue.toString())
+
             historyValue.clear()
         }
         binding.d8.setOnClickListener {

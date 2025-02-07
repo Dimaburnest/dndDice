@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = MyPagerAdapter(this)
         viewPager.adapter = adapter
 
+
         if (tabLayout != null) {
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->
                 tab.text = when (position) {
@@ -44,7 +45,6 @@ class MainActivity : AppCompatActivity() {
                     else -> null
                 }
             }.attach()
-
         }
     }
 }
