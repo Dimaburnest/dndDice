@@ -6,17 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+
 import com.example.homeworke.databinding.FragmentFirstBinding
 import kotlin.random.Random
 
 class FirstFragment : Fragment() {
-    val secondFragment:SecondFragment?=null
+
     var counterDice: Int = 1
     var counterMod: Int = 0
-    var fragmentSecond: SecondFragment? = null
-    var historyValue = ArrayList<Int>()
+    var dataThrow = ArrayList<Int>()
+    private val sharedVh: SharedViewModel by activityViewModels()
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,40 +35,71 @@ class FirstFragment : Fragment() {
     }
 
     fun initlisteners() {
+
 //binding.apply {
 //    d4
 //}
+
         binding.d4.setOnClickListener {
             val randomNumber = sumThrowDice(5)
-            showAlert(this, historyValue.toString())
-            fragmentSecond?.addItem(historyValue)
-            historyValue.clear()
+            showAlert(this, dataThrow.toString())
+            val newItem = Item(
+                throwDise = mutableListOf(randomNumber),
+                diseNumber = mutableListOf("D4")
+            )
+            sharedVh.addItem(newItem)
+            dataThrow.clear()
         }
         binding.d6.setOnClickListener {
             val randomNumber = sumThrowDice(7)
-            showAlert(this, historyValue.toString())
-
-            historyValue.clear()
+            showAlert(this, dataThrow.toString())
+            val newItem = Item(
+                throwDise = mutableListOf(randomNumber),
+                        diseNumber = mutableListOf("D6")
+            )
+            sharedVh.addItem(newItem)
+            dataThrow.clear()
         }
         binding.d8.setOnClickListener {
             val randomNumber = sumThrowDice(9)
-            showAlert(this, historyValue.toString())
-            historyValue.clear()
+            showAlert(this, dataThrow.toString())
+            val newItem = Item(
+                throwDise = mutableListOf(randomNumber),
+                        diseNumber = mutableListOf("D8")
+            )
+            sharedVh.addItem(newItem)
+            dataThrow.clear()
+
         }
         binding.d10.setOnClickListener {
             val randomNumber = sumThrowDice(11)
-            showAlert(this, historyValue.toString())
-            historyValue.clear()
+            showAlert(this, dataThrow.toString())
+            val newItem = Item(
+                throwDise = mutableListOf(randomNumber),
+                diseNumber = mutableListOf("D10")
+            )
+            sharedVh.addItem(newItem)
+            dataThrow.clear()
         }
         binding.d12.setOnClickListener {
             val randomNumber = sumThrowDice(13)
-            showAlert(this, historyValue.toString())
-            historyValue.clear()
+            showAlert(this, dataThrow.toString())
+            val newItem = Item(
+                throwDise = mutableListOf(randomNumber),
+                diseNumber = mutableListOf("D12")
+            )
+            sharedVh.addItem(newItem)
+            dataThrow.clear()
         }
         binding.d20.setOnClickListener {
             val randomNumber = sumThrowDice(21)
-            showAlert(this, historyValue.toString())
-            historyValue.clear()
+            showAlert(this, dataThrow.toString())
+            val newItem = Item(
+                throwDise = mutableListOf(randomNumber),
+                diseNumber = mutableListOf("D20")
+            )
+            sharedVh.addItem(newItem)
+            dataThrow.clear()
         }
 
         binding.plusMod.setOnClickListener {
@@ -107,14 +141,14 @@ class FirstFragment : Fragment() {
             if (sum < 1) {
                 sum = 1
             }
-            historyValue.add(sum)
+            dataThrow.add(sum)
 //            Log.d("main123123123", "sum: $sum")
         }
         return result
     }
     fun showAlert(context: FirstFragment, message: String) {
         val builder = AlertDialog.Builder(requireContext())
-        val throwNumbers: Int = historyValue.sum()
+        val throwNumbers: Int = dataThrow.sum()
         builder.setMessage(message + " " + throwNumbers)
         builder.setPositiveButton("ОК") { dialog, which -> dialog.dismiss() }
         val dialog: AlertDialog = builder.create()

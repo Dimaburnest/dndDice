@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.homeworke.databinding.DiceRollBinding
 import com.google.android.material.tabs.TabLayout
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = MyPagerAdapter(this)
         viewPager.adapter = adapter
+        viewPager.offscreenPageLimit = adapter.itemCount
 
 
         if (tabLayout != null) {
@@ -46,6 +49,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }.attach()
         }
+        
+
     }
 }
 
