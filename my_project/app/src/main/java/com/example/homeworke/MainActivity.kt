@@ -1,13 +1,13 @@
 package com.example.homeworke
 
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.homeworke.databinding.DiceRollBinding
 import com.google.android.material.tabs.TabLayout
@@ -16,6 +16,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 class MainActivity : AppCompatActivity() {
     private var _binding: DiceRollBinding? = null
     private val binding get() = _binding!!
+    private val sharedViewModel: SharedViewModel by viewModels()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,9 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = adapter.itemCount
 
+        binding.tvClear.setOnClickListener {
+                sharedViewModel.sendClearSignal()
+        }
 
         if (tabLayout != null) {
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->
@@ -52,6 +57,9 @@ class MainActivity : AppCompatActivity() {
         
 
     }
+
+
+
 }
 
 

@@ -39,13 +39,12 @@ class FirstFragment : Fragment() {
 //binding.apply {
 //    d4
 //}
-
-        binding.d4.setOnClickListener {
+        binding.d4.setOnClickListener() {
             val randomNumber = sumThrowDice(5)
             showAlert(this, dataThrow.toString())
             val newItem = Item(
-                throwDise = mutableListOf(randomNumber),
-                diseNumber = mutableListOf("D4")
+                throwDise = (randomNumber.toString()),
+                diseNumber = ("D4")
             )
             sharedVh.addItem(newItem)
             dataThrow.clear()
@@ -54,8 +53,8 @@ class FirstFragment : Fragment() {
             val randomNumber = sumThrowDice(7)
             showAlert(this, dataThrow.toString())
             val newItem = Item(
-                throwDise = mutableListOf(randomNumber),
-                        diseNumber = mutableListOf("D6")
+                throwDise = (randomNumber.toString()),
+                        diseNumber = ("D6")
             )
             sharedVh.addItem(newItem)
             dataThrow.clear()
@@ -64,8 +63,8 @@ class FirstFragment : Fragment() {
             val randomNumber = sumThrowDice(9)
             showAlert(this, dataThrow.toString())
             val newItem = Item(
-                throwDise = mutableListOf(randomNumber),
-                        diseNumber = mutableListOf("D8")
+                throwDise = (randomNumber.toString()),
+                        diseNumber = ("D8")
             )
             sharedVh.addItem(newItem)
             dataThrow.clear()
@@ -75,8 +74,8 @@ class FirstFragment : Fragment() {
             val randomNumber = sumThrowDice(11)
             showAlert(this, dataThrow.toString())
             val newItem = Item(
-                throwDise = mutableListOf(randomNumber),
-                diseNumber = mutableListOf("D10")
+                throwDise = (randomNumber.toString()),
+                diseNumber = ("D10")
             )
             sharedVh.addItem(newItem)
             dataThrow.clear()
@@ -85,8 +84,8 @@ class FirstFragment : Fragment() {
             val randomNumber = sumThrowDice(13)
             showAlert(this, dataThrow.toString())
             val newItem = Item(
-                throwDise = mutableListOf(randomNumber),
-                diseNumber = mutableListOf("D12")
+                throwDise = (randomNumber.toString()),
+                diseNumber = ("D12")
             )
             sharedVh.addItem(newItem)
             dataThrow.clear()
@@ -95,8 +94,8 @@ class FirstFragment : Fragment() {
             val randomNumber = sumThrowDice(21)
             showAlert(this, dataThrow.toString())
             val newItem = Item(
-                throwDise = mutableListOf(randomNumber),
-                diseNumber = mutableListOf("D20")
+                throwDise = (randomNumber.toString()),
+                diseNumber = ("D20")
             )
             sharedVh.addItem(newItem)
             dataThrow.clear()
