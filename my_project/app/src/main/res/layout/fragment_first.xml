@@ -140,7 +140,7 @@
                 android:layout_height="30dp"
                 android:layout_gravity="end"
                 android:background="@drawable/shape_rounded_variants"
-                android:src="@drawable/ic_plus"></ImageButton>
+                android:src="@drawable/ic_plus"/>
         </LinearLayout>
 
         <LinearLayout

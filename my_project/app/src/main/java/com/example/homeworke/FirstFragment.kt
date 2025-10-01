@@ -136,10 +136,10 @@ class FirstFragment : Fragment() {
         var result = 0
         for (i in 0..counterDice - 1) {
             sum = Random.nextInt(1, maxDiceValue) + counterMod
-            result += sum
             if (sum < 1) {
                 sum = 1
             }
+            result += sum
             dataThrow.add(sum)
 //            Log.d("main123123123", "sum: $sum")
         }
