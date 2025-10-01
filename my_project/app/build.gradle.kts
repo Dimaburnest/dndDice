@@ -37,10 +37,17 @@ android {
     buildFeatures{
         viewBinding =true
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
-
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.5.3")
+    implementation ("androidx.fragment:fragment-ktx:1.5.7")
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+    implementation ("androidx.appcompat:appcompat:1.4.1")
+    implementation ("com.google.android.material:material:1.5.0")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

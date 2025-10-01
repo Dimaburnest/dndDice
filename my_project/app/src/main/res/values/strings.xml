@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">Homeworke</string>
+    <string name="app_name">RPG DICE</string>
     <string name="rpg_dice">RPG DISE</string>
-    <string name="title_rpg_dice">RPG DICE</string>
-    <string name="button_history">HISTORY</string>
-    <string name="button_dice">DICE</string>
     <string name="mod">+0</string>
     <string name="number_of_throws">1d</string>
+    <string name="history">HISTORY</string>
+    <string name="dice">DICE</string>
 </resources>
